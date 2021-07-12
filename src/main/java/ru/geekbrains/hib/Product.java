@@ -30,6 +30,10 @@ public class Product {
         this.price = price;
     }
 
+    public List<Customer> getCustomer() {
+        return customer;
+    }
+
     public long getId() {
         return id;
     }
