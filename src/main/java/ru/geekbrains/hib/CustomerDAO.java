@@ -2,44 +2,45 @@ package ru.geekbrains.hib;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import java.util.List;
 
-public class ProductDAO {
+public class CustomerDAO {
     private SessionFactory sessionFactory;
 
-    public ProductDAO(SessionFactory sessionFactory) {
+    public CustomerDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    public Product findById(Long id){
+    public Customer findById(Long id){
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        Product product = session.get(Product.class, id);
+        Customer customer = session.get(Customer.class, id);
         session.getTransaction().commit();
-        return  product;
+        return  customer;
     }
 
-    public List<Product> findAll(){
+    public List<Customer> findAll(){
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        List<Product> products = session.createQuery("SELECT p FROM Products p", Product.class).getResultList();
+        List<Customer> сustomers = session.createQuery("SELECT с FROM Сustomer с", Customer.class).getResultList();
         session.getTransaction().commit();
-        return  products;
+        return  сustomers;
     }
 
     public void deleteById(Long id){
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        Product product = session.get(Product.class, id);
-        session.remove(product);
+        Customer customer = session.get(Customer.class, id);
+        session.remove(customer);
         session.getTransaction().commit();
     }
-    public Product saveOrUpdate(Product product){
+    public Customer saveOrUpdate(Customer customer){
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.save(product);
+        session.save(customer);
         session.getTransaction().commit();
-        return  product;
+        return  customer;
     }
 
 }

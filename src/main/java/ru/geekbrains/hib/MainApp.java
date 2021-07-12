@@ -16,19 +16,19 @@ public class MainApp {
 
         Session session = null;
         //
-            session = (Session) mySessionFactory.getSessionFactory();
-            session.beginTransaction();
-            Customer customer1 = session.get(Customer.class, 1);
-            List<Product> productsCustomer1 = customer1.getProductsList();
-            System.out.println(productsCustomer1);
-            session.getTransaction().commit();
+        session = (Session) mySessionFactory.getSessionFactory();
+        session.beginTransaction();
+        Customer customer1 = session.get(Customer.class, 1);
+        List<Product> productsCustomer1 = customer1.getProductsList();
+        System.out.println(productsCustomer1);
+        session.getTransaction().commit();
         //
-//        session = (Session) mySessionFactory.getSessionFactory();
-//        session.beginTransaction();
-//        Customer customer1 = session.get(Customer.class, 1);
-//        List<Product> productsCustomer1 = customer1.getProductsList();
-//        System.out.println(productsCustomer1);
-//        session.getTransaction().commit();
+        session = (Session) mySessionFactory.getSessionFactory();
+        session.beginTransaction();
+        Product product2 = session.get(Product.class, 2);
+        List<Customer> customersOfProduct = product2.getCustomer();
+        System.out.println(customersOfProduct);
+        session.getTransaction().commit();
 
     }
 }

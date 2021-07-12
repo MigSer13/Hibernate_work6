@@ -15,6 +15,8 @@ public class Product {
     @Column(name="price")
     private int price;
 
+
+
     @ManyToMany
     @JoinTable(name="products_customer",
             joinColumns = @JoinColumn(name="product_id"),
@@ -28,6 +30,10 @@ public class Product {
     public Product(String title, int price) {
         this.title = title;
         this.price = price;
+    }
+
+    public List<Customer> getCustomer() {
+        return customer;
     }
 
     public long getId() {

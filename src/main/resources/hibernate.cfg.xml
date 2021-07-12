@@ -14,5 +14,6 @@
         <property name="current_session_context_class">thread</property>
 
         <mapping class="ru.geekbrains.hib.Product"/>
+        <mapping class="ru.geekbrains.hib.Customer"/>
     </session-factory>
 </hibernate-configuration>
