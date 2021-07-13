@@ -23,7 +23,7 @@ public class MainApp {
             session.getTransaction().commit();
 
             List<Product> productList = productDAO.findProductsOfClientById(2L);
-            //List<Customer> customerList = customerDAO.findProductCustomersById(1L);
+            List<Customer> customerList = customerDAO.findProductsOfClientById(1L);
 
         } catch (IOException e) {
             e.printStackTrace();
