@@ -47,7 +47,10 @@ public class ProductDAO {
         session.beginTransaction();
         Customer customer = session.get(Customer.class, id);
         List<Product> productsList = customer.getProductsList();
-        System.out.println(productsList.stream().iterator().toString());
+        //productsList.stream().forEach(p-> System.out.print(p.getTitle()));
+        for (Product p: productsList) {
+            System.out.print(p.getTitle());
+        }
         session.getTransaction().commit();
         return productsList;
     }
