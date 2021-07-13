@@ -15,14 +15,12 @@ public class Product {
     @Column(name="price")
     private int price;
 
-
-
     @ManyToMany
     @JoinTable(name="products_customer",
             joinColumns = @JoinColumn(name="product_id"),
             inverseJoinColumns = @JoinColumn(name="customer_id")
     )
-    private List<Customer> customer;
+    private List<Customer> customers;
 
     public Product() {
     }
@@ -32,8 +30,8 @@ public class Product {
         this.price = price;
     }
 
-    public List<Customer> getCustomer() {
-        return customer;
+    public List<Customer> getCustomers() {
+        return customers;
     }
 
     public long getId() {

@@ -42,4 +42,16 @@ public class ProductDAO {
         return  product;
     }
 
+    public List<Product> findProductsOfClientById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        Customer customer = session.get(Customer.class, id);
+        List<Product> productsList = customer.getProductsList();
+        System.out.println(productsList.stream().iterator().toString());
+        session.getTransaction().commit();
+        return productsList;
+    }
+
+
+
 }

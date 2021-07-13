@@ -43,4 +43,14 @@ public class CustomerDAO {
         return  customer;
     }
 
+    public List<Customer> findProductsOfClientById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        Product product = session.get(Product.class, id);
+        List<Customer> customerList = product.getCustomers();
+        System.out.println(customerList.stream().iterator().toString());
+        session.getTransaction().commit();
+        return customerList;
+    }
+
 }
